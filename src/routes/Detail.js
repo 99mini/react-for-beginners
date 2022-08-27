@@ -19,8 +19,6 @@ function Detail() {
     getMovie();
   }, []);
 
-  console.log(movie);
-
   return (
     <div>
       {loading ? (
