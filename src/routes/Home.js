@@ -7,7 +7,7 @@ function Home() {
   const getMovies = async () => {
     const json = await (
       await fetch(
-        "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101"
+        "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20220101"
       )
     ).json();
 
@@ -23,15 +23,17 @@ function Home() {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        movies.map((movie) => (
-          <Movie
-            id={movie.movieCd}
-            key={movie.movieCd}
-            movieNm={movie.movieNm}
-            rank={movie.rank}
-            audiAcc={movie.audiAcc}
-          />
-        ))
+        <div>
+          {movies.map((movie) => (
+            <Movie
+              key={movie.movieCd}
+              id={movie.movieCd}
+              movieNm={movie.movieNm}
+              rank={movie.rank}
+              audiAcc={movie.audiAcc}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
